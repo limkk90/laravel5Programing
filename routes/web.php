@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Response;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,18 +64,27 @@ Route::get('calc/{num}', function ($num){
 
 Route::get('task/list2', function (){
    $tasks = [
-        ['name'=> 'Response클래스 분석', 'due_date' => '2015-06-01 11:22:33'],
+        ['name'=> 'Response클래스 분석', @'due_date' => '2015-06-01 11:22:33'],
        ['name'=> 'Response클래스 분석', 'due_date' => '2015-06-01 11:22:33'],
    ];
    return view('task.list2')->with('tasks', $tasks);
 });
 
-Route::get('task/list3', function (){
-    $tasks = [
-        ['name'=> 'Response클래스 분석', 'due_date' => '2015-06-01 11:22:33'],
-        ['name'=> '블레이드 분석', 'due_date' => '2015-06-01 11:22:33'],
-    ];
-    return view('task.list3')->with('tasks', $tasks);
-});
+//P118
+//Route::get('task/list3', function (){
+//    $tasks = [
+//        ['name'=> 'Response클래스 분석', 'due_date' => '2015-06-01 11:22:33'],
+//        ['name'=> '블레이드 분석', 'due_date' => '2015-06-01 11:22:33'],
+//    ];
+//    return view('task.list3')->with('tasks', $tasks);
+//});
+
+//Route::get('/user', [UserController::class, 'index']);
+//P140 컨트롤러에서 함수 호출 하는 방법 다름
+Route::get('task/list3}', [TaskController::class, 'list3']);
+
+//P141 라우트에 매개변수 넣기
+Route::get('task/param/{id?}/{arg?}', [TaskController::class, 'param']);
+
 
 

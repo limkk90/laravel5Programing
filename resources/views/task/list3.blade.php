@@ -14,7 +14,7 @@
         <tbody>
             @foreach($tasks as $task)
                 <tr>
-                    <td>{{$task->name}}</td>
+                    <td>{{$task['name']}}</td>
                     <td>{{$task['due_date']}}</td>
                 </tr>
             @endforeach
