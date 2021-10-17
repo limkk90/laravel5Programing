@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Response;
 use App\Http\Controllers\TaskController;
+use \App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -85,6 +86,13 @@ Route::get('task/list3}', [TaskController::class, 'list3']);
 
 //P141 라우트에 매개변수 넣기
 Route::get('task/param/{id?}/{arg?}', [TaskController::class, 'param']);
+
+
+Route::post('/project/task/store', [TaskController::class, ['as'=>'task.add', 'uses'=>'add']]);
+
+//리소스 컨트롤러
+Route::resource('orders', OrderController::class);
+
 
 
 

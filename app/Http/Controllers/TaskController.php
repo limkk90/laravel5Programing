@@ -22,13 +22,14 @@ class TaskController extends Controller
 //        return ['id'=>$id, 'arg'=>$arg];
 //    }
     public function param(Request $request, $id=1, $arg='argument'){
-        return dum([
+        return dump([
            'path'=>$request->path(),
            'url'=>$request->url(),
            'fullUrl'=>$request->fullUrl(),
            'method'=>$request->method(),
            'name'=>$request->get('name'),
-
+            'ajax'=>$request->ajax(),
+            'header'=>$request->header(),
         ]);
     }
 }
