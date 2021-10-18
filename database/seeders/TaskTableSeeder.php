@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class ProjectTableSeeder extends Seeder
+class TaskTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,14 +15,14 @@ class ProjectTableSeeder extends Seeder
     public function run()
     {
         //
-        $prjs = ['개인', '업무', '학습', '쇼핑'];
-        foreach ($prjs as $prj){
-            DB::table('projects')->insert([
-                'name'=>$prj,
+        for($i=0; $i<20; $i++){
+            DB::table('tasks')->insert([
+               'project_id' =>rand(1,4),
+               'name'=> 'Task'.$i,
+                'description'=>'Task'.$i,
                 'created_at'=>\Carbon\Carbon::now(),
                 'updated_at'=>\Carbon\Carbon::now(),
             ]);
         }
-
     }
 }

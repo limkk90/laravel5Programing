@@ -93,6 +93,8 @@ Route::post('/project/task/store', [TaskController::class, ['as'=>'task.add', 'u
 //리소스 컨트롤러
 Route::resource('orders', OrderController::class);
 
+Route::get('impl/collection', [TaskController::class, 'getCollection']);
+
 
 
 

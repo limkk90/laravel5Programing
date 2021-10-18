@@ -15,10 +15,7 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         //
-        User::created([
-            'name'=>'lesstif',
-            'email'=>'food@bar.com',
-        ]);
+        User::factory(5)->create();
 
     }
 }
